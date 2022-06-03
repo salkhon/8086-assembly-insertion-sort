@@ -24,6 +24,9 @@ MAIN PROC
     MUL BX
     MOV NUM_INTS, AX
 
+    TEST AX, AX
+    JS END_PROG
+
     CALL TAKE_NUM_INTS_INPUTS_AND_PUT_IN_ARRAY
 
     CALL PRINT_NEWLINE
@@ -36,6 +39,7 @@ MAIN PROC
 
     CALL BIN_SEARCH_INPUT_LOOP        
     
+    END_PROG:
     MOV AH, 4CH
     INT 21H                    
 ENDP
