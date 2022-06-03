@@ -6,7 +6,7 @@
     LF DB 10
     CR DB 13    
     
-    ARRAY DW 100 DUP(0)     ; intels 8086 architectures supported registers are bx, si, di, and bp only.
+    ARRAY DW 100 DUP(0)         ; intels 8086 architectures supported registers are bx, si, di, and bp only.
     ARR_MAX_SZ DW 100 
     CURR_SZ DW 0
     NUM_INTS DW 0
@@ -133,6 +133,7 @@ BIN_SEARCH_INPUT_LOOP PROC          ; MODIFIES AX, BX, BP, SI, DI
     
     MOV AX, SI                      ; FOUND
     SHR AX, 1
+    ADD AX, 1                   
     CALL PRINT_INT_IN_AX
 
     JMP TAKE_INPUT
@@ -304,9 +305,6 @@ ENDP
 
 
 ; INSERTION SORT UTILS
-
-
-
 INSERT_INT_IN_ARRAY_SI_IN_SORTED_POSITION PROC         ; MODIFIES SI, DI, DX AND ARRAY
                                     ; BUBBLE INT IN ARRAY[SI] TO IT'S SORT POSITION
     BUBBLE:
